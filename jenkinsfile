@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NETLIFY_SITE_ID = 'FIXME: 539da800-69b4-4cbe-a86b-36f97fa34336'
+        NETLIFY_SITE_ID = ' 539da800-69b4-4cbe-a86b-36f97fa34336'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
 
@@ -12,6 +12,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
+                    args '-m 2g --memory-swap 2g'
                     reuseNode true
                 }
             }
@@ -80,6 +81,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
+                    args '-m 2g --memory-swap 2g'
                     reuseNode true
                 }
             }
